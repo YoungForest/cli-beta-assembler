@@ -5,7 +5,7 @@ python translate.py
 And the output is the machine instrucion which could be load into logisim directly
 '''
 
-rom beta.assembler.assembler import assemble_str, assemble
+from beta.assembler.assembler import assemble_str, assemble
 
 if __name__ == '__main__':
     bytes, _ = assemble("assignment3.asm")
@@ -20,7 +20,7 @@ if __name__ == '__main__':
             byte = hex(bytes[i + j])[2:]
             if len(byte) == 1:
                 byte = '0' + byte
-            instruction += byte
+            instruction = byte + instruction
         ans += instruction + ' '
         if instruction_count % 8 == 7:
             ans += '\n'
